@@ -4,10 +4,13 @@
   "description": "npm package for formatting json stringify",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --fix src",
+    "build": "npm run ts && npx babel src --out-dir lib --presets=@babel/env",
+    "watch": "concurrently 'npm run watch:ts' 'npx babel src --watch --out-dir lib --presets=@babel/env'",
+    "watch:ts": "tsc --watch src/index.ts",
+    "watch:babel": "npx babel src --watch --out-dir lib --presets=@babel/env",
     "ts": "tsc src/index.ts",
-    "build": "npm run ts && npx babel src --out-dir lib --presets=@babel/env"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --fix src"
   },
   "repository": {
     "type": "git",
@@ -31,6 +34,7 @@
     "typescript-eslint": "0.0.1-alpha.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.7.0"
+    "@babel/polyfill": "^7.7.0",
+    "concurrently": "^5.0.0"
   }
 }
