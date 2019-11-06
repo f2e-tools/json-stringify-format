@@ -1,9 +1,3 @@
-// one can also use '\t' or a different number of spaces
-declare let PADDING: string
-declare let pad: number
-declare let formatted: string
-declare let reg: any
-
 interface JsonFormat {
   (json: string, options?: any): string
 }
@@ -17,11 +11,10 @@ let jsonFormat: JsonFormat
  * @param {any} options - 规则
  */
 jsonFormat = function(json, options) {
-  // 正则规则
-  reg = null
-  formatted = ''
-  pad = 0
-  PADDING = '    '
+  let reg: any = null,
+    formatted: string = '',
+    pad: number = 0,
+    PADDING: string = '    ' // one can also use '\t' or a different number of spaces
   // optional settings
   options = options || {}
   // remove newline where '{' or '[' follows ':'
@@ -51,7 +44,7 @@ jsonFormat = function(json, options) {
 
   // add newline before and after square brackets
   // 在方括号之前和之后添加换行符
-  reg = /([[]])/g
+  reg = /([\[\]])/g
   json = json.replace(reg, '\r\n$1\r\n')
 
   // add newline after comma

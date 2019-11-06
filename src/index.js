@@ -6,11 +6,7 @@ var jsonFormat;
  * @param {any} options - 规则
  */
 jsonFormat = function (json, options) {
-    // 正则规则
-    reg = null;
-    formatted = '';
-    pad = 0;
-    PADDING = '    ';
+    var reg = null, formatted = '', pad = 0, PADDING = '    '; // one can also use '\t' or a different number of spaces
     // optional settings
     options = options || {};
     // remove newline where '{' or '[' follows ':'
@@ -36,7 +32,7 @@ jsonFormat = function (json, options) {
     json = json.replace(reg, '\r\n$1\r\n');
     // add newline before and after square brackets
     // 在方括号之前和之后添加换行符
-    reg = /([[]])/g;
+    reg = /([\[\]])/g;
     json = json.replace(reg, '\r\n$1\r\n');
     // add newline after comma
     // 在逗号后添加换行符
