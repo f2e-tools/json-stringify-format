@@ -22,6 +22,9 @@
     "url": "https://github.com/AllenChinese/json-stringify-format/issues"
   },
   "homepage": "https://github.com/AllenChinese/json-stringify-format#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "devDependencies": {
     "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.0",
