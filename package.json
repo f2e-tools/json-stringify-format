@@ -2,9 +2,12 @@
   "name": "json-stringify-format",
   "version": "1.0.0",
   "description": "npm package for formatting json stringify",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --fix src",
+    "ts": "tsc src/index.ts",
+    "build": "npm run ts && npx babel src --out-dir lib --presets=@babel/env"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,19 @@
   "bugs": {
     "url": "https://github.com/AllenChinese/json-stringify-format/issues"
   },
-  "homepage": "https://github.com/AllenChinese/json-stringify-format#readme"
+  "homepage": "https://github.com/AllenChinese/json-stringify-format#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.0",
+    "@babel/plugin-transform-arrow-functions": "^7.2.0",
+    "@babel/preset-env": "^7.7.1",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
+    "eslint": "^6.6.0",
+    "typescript": "^3.6.4",
+    "typescript-eslint": "0.0.1-alpha.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0"
+  }
 }
